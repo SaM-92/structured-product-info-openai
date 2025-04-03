@@ -1,33 +1,52 @@
-# GitHub Models - Limited Public Beta
+# 🤖 GitHub Models - Structured Output Example
 
-Welcome to your shiny new Codespace for interacting with GitHub Models! We've got everything fired up and ready for you to explore AI Models hosted on Azure AI.
+This repository demonstrates OpenAI's Structured Output feature using GitHub Models. This feature is a game-changer for developers because:
+- 🎯 It eliminates the need for complex parsing of AI responses
+- 🔒 Guarantees type-safe data structures
+- 🚀 Reduces errors and validation code
 
-The git history is a nearly-blank canvas; there's a single initial commit with the contents you're seeing right now - where you go from here is up to you!
+## ✨ Why Structured Outputs?
+Instead of getting raw text and parsing it yourself, the API returns data in exactly the structure you need. Imagine getting JSON-like responses that are automatically validated and converted to your programming language's native types!
 
-Everything you do here is contained within this one codespace. There is no repository on GitHub yet. When you’re ready, you can click "Publish Branch" and we’ll create your repository and push up your project. If you were just exploring and have no further need for this code, you can simply delete your codespace and it's gone forever.
+## 🛠 About Pydantic
+Pydantic is the engine behind our data validation:
+- Automatically converts and validates data types
+- Provides clear error messages if data doesn't match expected format
+- Works seamlessly with Python type hints
 
-For more information about the Models available on GitHub Models, check out the [Marketplace](https://github.com/marketplace/models).
+## 💡 Example Explained
+```python
+# This is what happens in our code:
+1. We define a Product model with specific fields (id, name, price, etc.)
+2. The API extracts info from natural text: "The XPS 13 laptop costs $999..."
+3. Returns a perfectly structured object, ready for database insertion!
+```
 
-When bringing your application to scale, you must provision resources and authenticate from Azure, not GitHub. Learn more about deploying models to meet your use case with Azure AI.
+## 🚀 Quick Start
 
-## Getting Started
+1. Open in Codespace
+2. Ensure `GITHUB_TOKEN` is set in your environment
+3. Run the example:
+```bash
+python product_extractor.py
+```
 
-There are a few basic examples that are ready for you to run. You can find them in the [samples directory](samples/README.md). If you want to jump straight to your favorite language, you can find the examples in the following directories:
+## 📝 Example Output
+```python
+Database record ready for insertion:
+Product: {
+    "id": "xps13",
+    "name": "XPS 13 laptop",
+    "price": 999.0,
+    "category": "premium",
+    "in_stock": true
+}
 
-- [JavaScript](samples/js/README.md)
-- [Python](samples/python/README.md)
-- [cURL](samples/curl/README.md)
+SQL example:
+INSERT INTO products VALUES ('xps13', 'XPS 13 laptop', 999.0, 'premium', true);
+```
 
-If you are already familiar with the GitHub Models service, you can start by running our Cookbook examples. You can find them in the [cookbooks directory](cookbooks/README.md). Here are the direct links to the available languages (at this point only Python):
-
-- [Python](cookbooks/python/README.md)
-
-## Disclosures
-
-Remember when interacting with a model you are experimenting with AI, so content mistakes are possible.  
-
-The feature is subject to various limits (including requests per minute, requests per day, tokens per request, and concurrent requests) and is not designed for production use cases.
-
-GitHub Models uses [Azure AI Content Safety](https://azure.microsoft.com/en-us/products/ai-services/ai-content-safety). These filters cannot be turned off as part of the GitHub Models experience. If you decide to employ models through a paid service, please configure your content filters to meet your requirements.
-
-This service is under GitHub’s [Pre-release Terms](https://docs.github.com/en/site-policy/github-terms/github-pre-release-license-terms). Your use of the GitHub Models is subject to the following [Product Terms](https://www.microsoft.com/licensing/terms/productoffering/MicrosoftAzure/allprograms) and [Privacy Statement](https://www.microsoft.com/licensing/terms/product/PrivacyandSecurityTerms/MCA). Content within this Repository may be subject to additional license terms.
+## ⚠️ Important Notes
+- This is a beta feature with usage limits
+- Uses Azure AI Content Safety filters
+- See [Pre-release Terms](https://docs.github.com/en/site-policy/github-terms/github-pre-release-license-terms) for details
