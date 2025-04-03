@@ -5,6 +5,9 @@ This repository demonstrates OpenAI's Structured Output feature using GitHub Mod
 - 🔒 Guarantees type-safe data structures
 - 🚀 Reduces errors and validation code
 
+![Demonstration of Model Overview](/instructions/overview.gif)
+
+
 ## ✨ Why Structured Outputs?
 Instead of getting raw text and parsing it yourself, the API returns data in exactly the structure you need. Imagine getting JSON-like responses that are automatically validated and converted to your programming language's native types!
 
@@ -34,9 +37,7 @@ python product_extractor.py
 ## 🎥 Demo
 Watch how to run this example:
 
-
-![Watch how to run this example](/instructions/example_structure_output.gif)
-
+![Demonstration of Structured Output API extracting product information from text to JSON](/instructions/example_structure_output.gif)
 
 > Note: The video demonstrates the complete workflow from setting up the environment to running the extractor.
 
