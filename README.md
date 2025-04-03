@@ -31,6 +31,15 @@ Pydantic is the engine behind our data validation:
 python product_extractor.py
 ```
 
+## 🎥 Demo
+Watch how to run this example:
+
+
+![Watch how to run this example](/instructions/example_structure_output.gif)
+
+
+> Note: The video demonstrates the complete workflow from setting up the environment to running the extractor.
+
 ## 📝 Example Output
 ```python
 Database record ready for insertion:
